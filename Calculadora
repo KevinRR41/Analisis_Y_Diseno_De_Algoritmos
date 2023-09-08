@@ -1,0 +1,44 @@
+import time # libreria para el tiempo
+
+print('Hola, Que tal? Este es un programa que te servira mucho\nSi quiere saber que hace porfavor.')
+num1 = int(input("Ingrese un primer numero: "))
+print('Excelente ahora porfavor.')
+num2 = int(input('Ingrese un segundo numero: '))
+print(f'Muy bien el primero numero es {num1} y el segundo numero es {num2}')
+
+print('Ahora sorpresa! Este programa es una calculadora\nAh que no te la esperabas verdad?\nBien pues el programa puede hacer lo siguiente\n')
+print('\n1)Suma 2)Resta 3)Multiplicacion 4)Division')
+menu = int(input('\nQue te gustaria hacer?: '))
+while menu != 5 :
+
+    if menu == 1 :
+        num3 = (num1 + num2) 
+        print(f'Muy bien el resultado de la suma es {num3}')
+        break
+    elif menu == 2 : 
+        num3 = num1-num2 
+        num4 = num2-num1
+        print(f'Muy bien el resultado de la resta entre {num1} y {num2} es {num3}\nO bien el resultado de la resta entre {num2} y {num1} es {num4}')
+        break
+    elif menu == 3 : 
+        num3 = num1*num2 
+        print(f'Muy bien el resultado de la multiplicacion es {num3}')
+        break
+    elif menu == 4 : 
+        num3 = num1/num2 
+        num4 = num2/num1
+        print(f'Muy bien el resultado de la division entre {num1} y {num2} es {num3}\nO bien el resultado de la division entre {num2} y {num1} es {num4}')
+        break
+    else :
+        print('Porfavor ingrese una opcion correcta')
+        break    
+
+menu = input('\Gracias por ocupar el programa')
+
+inicio = time.time()
+res = 0
+for i in range (0, 1000):
+    res = res + i 
+fin = time.time()
+tiempo_ejecutado = fin - inicio
+print('Vaya si que fue un poco tardado me tarde: ', tiempo_ejecutado)
