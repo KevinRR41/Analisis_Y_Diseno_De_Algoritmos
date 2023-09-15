@@ -1,0 +1,16 @@
+#Codigo Fibbonacci
+def fibonacci (num): #Se define la funcion fibonacci
+    fibo.insert(0,1) #Se ocupa insert para meter los valores en las posiciones indicadas
+    fibo.insert(1,1)
+
+    for i in range(2,num):#Ocupamos un ciclo que siga la serie de fibonacci hasta la posicion deseada
+        next=fibo[i-2]+fibo[i-1]
+        fibo.append(next)#Se ocupa append para colocar el valor a la lista
+
+print('Hola, este programa saca la serie de fibonacci hasta el numero que desees')
+num = int(input('Hasta cual numero te gustaria que se detuviera? \n')) #Pregunta hasta que numero se detendra el ciclo
+fibo = [] #Se declara el arreglo
+print(f'Muy bien, ahora el programa se ejecutara hasta el numero: {num}')#Se indica la posicion deseada
+
+fibonacci(100)
+print(f'El resultado fibonacci es {fibo[num]}')#Se indica el resultado
