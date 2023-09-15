@@ -1,0 +1,13 @@
+#Codigo para sacar el factorial de un numero
+def calcularfactorial(a,num): #Se define la funcion del factorial
+ if(num>0): #El numero tiene que ser mayor a 0
+  a=calcularfactorial(a,num-1) #Como el numero es distinto de 0 entonces se multiplicara por el resto
+  a=a*num 
+ else:
+  a=1 #El factorial de 0 es 1
+ return a
+print('Hola, este programa sacar el factorial del numero que desees')
+num = int(input('Hasta cual numero te gustaria que se detuviera? \n')) #Pregunta a que numero le quiere sacar factorial
+a=1 #El auxiliar que ocuparemos sera uno que tenga valor 1
+a=calcularfactorial(a,num) #Se ejecuta la funcion de calcularFactorial hasta el numero deseado
+print (a) #Se imprime el valor del factorial
