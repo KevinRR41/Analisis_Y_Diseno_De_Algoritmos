@@ -1,0 +1,28 @@
+#Programa que saca el factorial y la serie de fibonacci de un numero
+print("Hola, este programa saca el factorial y la serie de fibonacci de un numero")
+#Mandamos a pedir el numero
+num=int(input('Ingrese el numero que desea ocupar: '))
+#Funcion recursiva del factorial
+def factorialRecursivo(num):
+    if num==1:
+     return 1
+    else:
+       return num*factorialRecursivo(num-1)
+#Funcion Recursiva de la serie Fibonacci
+def fibonacciRecursivo(num):
+    if num==0:
+     return 0
+    elif num==1:
+        return 1
+    else:
+       return fibonacciRecursivo(num-2)+fibonacciRecursivo(num-1)
+
+print("El numero que usted ha escogido es: ",num)
+print("El factorial de ese numero es: ",factorialRecursivo(num))        
+print("La serie fibonacci de ",num," terminos es:")
+#Ocupamos un ciclo que siga la serie de fibonacci hasta la posicion deseada
+for i in range(num):
+        print(fibonacciRecursivo(i))
+
+print("El ultimo digito de la serie de fibonacci hasta",num,"es", fibonacciRecursivo(i))
+print("Gracias por ocupar el programa que tenga un excelente dia")
