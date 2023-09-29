@@ -1,0 +1,21 @@
+#Torres de Hanoi
+''' 
+Valores por si quiero nombrar las torres como numeros
+torre1 = 1
+torre2 = 2
+torre3 = 3
+'''
+n = 4
+#Funcion Para las Torres de hanoi
+def torreHanoi(n, ori, des, aux):
+    if(n == 1): 
+        #Caso Base
+        print(f'Mueve el disco {n} desde la Torre {ori} hasta la torre {des}')
+    else:
+        #Caso General
+        torreHanoi(n-1, ori, aux, des)
+        print(f'Mueve el disco {n} desde la Torre {ori} hasta la torre {des}')
+        torreHanoi(n -1, aux, des, ori)
+
+torreHanoi(n, 'A', 'C', 'B')
+#torreHanoi(n, torre1, torre3, torre2)
