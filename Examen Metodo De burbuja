@@ -1,0 +1,32 @@
+#Examen Metodo Burbuja
+#Declaramos el arreglo
+arreglo = [2,4,6,5,3,7,1]
+#Imprimimos el arreglo
+print(arreglo)
+#Funcion metodo de Burbuja Iterativo
+def metodoBurbujaIterativo(arreglo):
+    num = len(arreglo)
+    for i in range(num-1):
+        for j in range(num-1-i):
+            if arreglo[j] > arreglo[j+1]:
+                arreglo[j], arreglo[j+1] = arreglo[j+1], arreglo[j]
+#Funcion metodo Burbuja de manera Recursiva
+def metodoBurbujaRecursivo(arreglo,num):
+    #Caso Base
+    for i in range(num - 1):
+        if arreglo[i] > arreglo[i+1]:
+            aux = arreglo[i]
+            arreglo[i] = arreglo[i+1]
+            arreglo[i+1] = aux
+    #Caso General
+    if num-1>1:
+        metodoBurbujaRecursivo(arreglo,num-1)
+      
+#Mandamos a llamar el metodo
+metodoBurbujaIterativo(arreglo)
+#Imprimims el arreglo ordenado
+print(arreglo)
+#Mandamos a llamar el metodo
+metodoBurbujaRecursivo(arreglo,len(arreglo))
+#Imprimims el arreglo ordenado
+print(arreglo)
