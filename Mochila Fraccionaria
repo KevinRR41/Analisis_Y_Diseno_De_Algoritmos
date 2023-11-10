@@ -1,0 +1,58 @@
+import random
+import time
+import matplotlib.pyplot as plt
+#Funcion para la mochila
+def backpack_fractional(capacity, object):
+    #Ordenar por valor/peso
+    object.sort(key=lambda x: x[0]/x[1], reverse = True)
+
+    total_objects = 0.0
+    backpack = []
+    #worth = valor | weight = peso
+    for worth, weight in object:
+        #Si el objeto se puede guardar completo
+        if capacity >= weight:
+            backpack.append((worth, weight))
+            total_objects += worth
+            capacity -= weight
+        #Cuando el objeto pesa mas que la capacidad de la mochila
+        else:
+            fraction = capacity/weight
+            backpack.append((worth*fraction,weight*fraction))
+            total_objects += worth * fraction
+            break
+    #Returna el total de objetos que se quedaron en la mochila
+    return total_objects, backpack
+
+def totalObjects():
+    total_objects = []
+    for _ in range(0,random.randint(1,1000)):
+        objects = [random.randint(1,1000),random.randint(1,5000)]
+        total_objects.append(objects)
+    return total_objects
+
+def graficar (size, times):
+    #Poner el tamaño de la grafica
+    plt.figure(figsize=(8,6))
+    plt.plot(size,times,marker = 'o')
+    plt.title("Tiempo Mochilas")
+    plt.xlabel("Numero de experimentos")
+    plt.ylabel("Tiempo de Ejecucion")
+    plt.grid(True)
+    plt.show()
+
+if __name__ == '__main__':
+    
+    size = []
+    times = []
+    for n in range(0,random.randint(1,100)):
+        begin = time.time()
+        total_Objects = totalObjects()
+        capacity = random.randint(1,100000)
+        total_objects, backpack = backpack_fractional(capacity, total_Objects)
+        end = time.time()
+        execution =  end - begin
+        times.append(execution)
+        size.append(n)
+        #print(f'El total de objetos es {total_objects} y la mochila quedo {backpack}, el numero de experimentos fue{size} y el tiempo fue{times}')
+    graficar(size,times)
